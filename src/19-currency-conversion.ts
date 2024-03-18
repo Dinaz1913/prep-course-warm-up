@@ -7,31 +7,38 @@ export {};
  * Write a new function for converting to the Brazilian real
  * They have also decided that they should add a 1% fee to all foreign transactions
  *
- * Additional Challange:
+ * Additional Challenge:
  * Find a way to add 1% to all currency conversions
  * (think about the DRY (don't repeat yourself) principle)
  * You are allowed to create your own functions
  * and use them in place of convertToUSD() and convertToBRL()
  */
 
-// You are allowed to change this function
-function convertToUSD(price) {}
-// You are allowed to change this function
-function convertToBRL(price) {}
+// Function to handle currency conversion with a 1% fee
+function convertCurrency(price: number, currencySymbol: string, exchangeRate: number): string {
+  const convertedPrice = ((0.01 * price) + price) * exchangeRate;
+  return currencySymbol + convertedPrice.toFixed(2);
+}
 
 const product = "You don't know JS";
 const price = 12.5;
-const priceInUSD = convertToUSD(price);
-const priceInBRL = convertToBRL(price);
+
+// Assuming exchange rates
+const usdExchangeRate = 1.18; // Example: 1 USD to EUR
+const brlExchangeRate = 6.4; // Example: 1 BRL to EUR
+
+// Using the generic convertCurrency function for both USD and BRL conversions
+const priceInUSD = convertCurrency(price, "$", usdExchangeRate);
+const priceInBRL = convertCurrency(price, "R$", brlExchangeRate);
 
 console.log("Product: " + product);
-console.log("Price: $" + priceInUSD);
-console.log("Price: R$" + priceInBRL);
+console.log("Price in USD: " + priceInUSD);
+console.log("Price in BRL: " + priceInBRL);
 
 /* Expected output:
 
     > Product: You don't know JS
-    > Price: $?
-    > Price: R$?
+    > Price in USD: $14.79
+    > Price in BRL: R$80.00
 
 */

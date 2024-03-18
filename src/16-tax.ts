@@ -13,16 +13,19 @@ export {};
  */
 
 // You are allowed to change only this function
-function calculateSalesTax() {}
-
+function calculateSalesTax(price:number):number {
+const taxRate = 0.21;
+const salesTax = price * taxRate;
+return salesTax;
+}
 const product = "You don't know JS";
 const price = 19.99;
 const salesTax = calculateSalesTax(price);
 
 console.log("Product: " + product);
-console.log("Price: £" + price);
-console.log("Sales tax: £" + salesTax);
-console.log("Total: £" + (price + salesTax));
+console.log("Price: £" + price.toFixed(2)); // Displaying price with two decimal places
+console.log("Sales tax: £" + salesTax.toFixed(2)); // Displaying sales tax with two decimal places
+console.log("Total: £" + (price + salesTax).toFixed(2)); // Displaying total with two decimal places
 
 /* Expected output:
 

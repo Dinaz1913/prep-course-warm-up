@@ -8,7 +8,10 @@ export {};
  */
 
 // You are allowed to change only this function
-function convertToUSD() {}
+function convertToUSD(price:number):string {
+const dollarprice = "$" + (price * 1.4).toFixed(2);
+return dollarprice;
+}
 
 const product = "You don't know JS";
 const price = 19.99;

@@ -8,10 +8,14 @@ export {};
  * Write a function that transforms numbers into the format £0.00
  */
 
-// You are allowed to change only this function
-function formatCurrency() {}
+// Implementation of formatCurrency function
+function formatCurrency(price: number): string {
+  // Format the price with 2 decimal places and prepend the currency symbol
+  const formattedPrice = "£" + price.toFixed(2);
+  return formattedPrice;
+}
 
-function calculateSalesTax(price: number) {
+function calculateSalesTax(price: number): number {
   return price * 0.21;
 }
 
